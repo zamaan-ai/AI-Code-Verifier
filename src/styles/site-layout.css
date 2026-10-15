@@ -1,0 +1,139 @@
+/* Landing-page layout tokens (from inspector dump). Used by login hero + app shell. */
+
+:root {
+  --color-page: #fdfdfd;
+  --color-ink: #0a0a0a;
+  --color-muted: #f4f7f6;
+  --color-white: #ffffff;
+  --color-border: rgb(0 0 0 / 0.1);
+  --sidebar-width: 260px;
+  --hero-radius: 64px;
+  --overlay-radius-tr: 20px;
+  --overlay-radius-bl: 32px;
+  --space-x: 1.5rem;
+  --space-x-md: 4rem;
+}
+
+.page {
+  position: relative;
+  background: var(--color-page);
+  color: var(--color-ink);
+}
+
+.hero {
+  position: relative;
+  height: 100dvh;
+  padding: 0;
+}
+
+.hero__frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 0;
+  background: var(--color-ink);
+  color: var(--color-white);
+}
+
+.hero__video,
+.hero__glow {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero__glow {
+  opacity: 0.9;
+  mix-blend-mode: screen;
+  transform: scale(1.05);
+  background:
+    radial-gradient(ellipse at 20% 30%, rgb(255 255 255 / 0.18), transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgb(244 247 246 / 0.12), transparent 45%),
+    repeating-linear-gradient(
+      105deg,
+      transparent 0,
+      transparent 18px,
+      rgb(255 255 255 / 0.03) 18px,
+      rgb(255 255 255 / 0.03) 19px
+    );
+}
+
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgb(0 0 0 / 0.1) 0%,
+    rgb(0 0 0 / 0.2) 50%,
+    rgb(0 0 0 / 0.7) 100%
+  );
+}
+
+.hero__top-right {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 20;
+  pointer-events: auto;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1.5rem 1.25rem 1.75rem;
+  background: var(--color-page);
+  border-bottom-left-radius: var(--overlay-radius-tr);
+  color: var(--color-ink);
+}
+
+.hero__bottom-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 92%;
+  padding: 1rem 1.25rem 1rem 1.5rem;
+  background: var(--color-page);
+  border-top-right-radius: var(--overlay-radius-bl);
+  color: var(--color-ink);
+}
+
+.hero__copy {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2.5rem 1.5rem 5rem;
+  margin-top: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    height: 100vh;
+    padding: 1.5rem 1.5rem 1.5rem 0;
+  }
+
+  .hero__frame {
+    border-radius: var(--hero-radius);
+  }
+
+  .hero__top-right {
+    display: flex;
+  }
+
+  .hero__bottom-left {
+    gap: 1.25rem;
+    padding: 1.25rem 2rem 1.25rem 1.5rem;
+  }
+
+  .hero__copy {
+    margin-top: 0;
+    padding: 0 6rem 8rem 1.5rem;
+  }
+}
